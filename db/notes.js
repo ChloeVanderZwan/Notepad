@@ -7,44 +7,44 @@
 const notes = [
   {
     id: 1,
-    text: "Pariatur deserunt esse ullamco exercitation.",
+    text: "Pariatur deserunt esse ullamco exercitation."
   },
   {
     id: 2,
-    text: "Duis voluptate officia non officia id est ut enim deserunt sit id consequat laboris.",
+    text: "Duis voluptate officia non officia id est ut enim deserunt sit id consequat laboris."
   },
   {
     id: 3,
-    text: "Deserunt velit sint nulla pariatur velit deserunt laborum minim anim enim ex exercitation veniam.",
+    text: "Deserunt velit sint nulla pariatur velit deserunt laborum minim anim enim ex exercitation veniam."
   },
   {
     id: 4,
-    text: "Consectetur dolor ullamco eiusmod officia fugiat exercitation magna cupidatat et sunt.",
+    text: "Consectetur dolor ullamco eiusmod officia fugiat exercitation magna cupidatat et sunt."
   },
   {
     id: 5,
-    text: "Est exercitation reprehenderit aute sint amet nostrud.",
+    text: "Est exercitation reprehenderit aute sint amet nostrud."
   },
   {
     id: 6,
-    text: "Incididunt amet cillum aliqua dolor do tempor non qui dolore adipisicing aute cillum aute do.",
+    text: "Incididunt amet cillum aliqua dolor do tempor non qui dolore adipisicing aute cillum aute do."
   },
   {
     id: 7,
-    text: "Sit consequat adipisicing veniam officia veniam do mollit laborum laboris pariatur elit in esse.",
+    text: "Sit consequat adipisicing veniam officia veniam do mollit laborum laboris pariatur elit in esse."
   },
   {
     id: 8,
-    text: "Ut in ut est adipisicing elit proident exercitation ullamco sunt.",
+    text: "Ut in ut est adipisicing elit proident exercitation ullamco sunt."
   },
   {
     id: 9,
-    text: "Quis ipsum ipsum adipisicing ea sint voluptate magna veniam elit pariatur in.",
+    text: "Quis ipsum ipsum adipisicing ea sint voluptate magna veniam elit pariatur in."
   },
   {
     id: 10,
-    text: "Ad aliqua reprehenderit consectetur consequat nostrud.",
-  },
+    text: "Ad aliqua reprehenderit consectetur consequat nostrud."
+  }
 ];
 
 export function getNotes() {
@@ -57,7 +57,7 @@ export function getNotes() {
  * @returns {undefined} if no note with the given ID exists
  */
 export function getNoteById(id) {
-  // TODO
+  return notes.find((note) => note.id === id);
 }
 
 /**
@@ -67,5 +67,9 @@ export function getNoteById(id) {
  * @returns {Note} the newly created note
  */
 export function addNote(text) {
-  // TODO
+  const lastNote = notes[notes.length - 1];
+  const newId = lastNote ? lastNote.id + 1 : 1;
+  const newNote = { id: newId, text };
+  notes.push(newNote);
+  return newNote;
 }

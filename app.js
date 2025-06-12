@@ -1,6 +1,10 @@
 import express from "express";
+import notesRouter from "./api/notes.js";
+
 const app = express();
-export default app;
+
+// Parse JSON request bodies
+app.use(express.json());
 
 // Simple logging middleware
 app.use((req, res, next) => {
@@ -8,7 +12,12 @@ app.use((req, res, next) => {
   next();
 });
 
+// Mount the notes router
+app.use("/notes", notesRouter);
+
 // Catch-all error-handling middleware
 app.use((err, req, res, next) => {
   res.status(500).send("Sorry! Something went wrong :(");
 });
+
+export default app;
